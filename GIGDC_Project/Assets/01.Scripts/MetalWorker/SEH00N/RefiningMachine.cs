@@ -13,7 +13,7 @@ public class RefiningMachine : MonoBehaviour
     /// 정제 대상이 정제 가능한 상태인지 확인하는 메소드
     /// </summary>
     private bool CheckMaterial(SmeltingStat materialStat) 
-        => (targetMaterial == materialStat); //정제 가능 상태일 때 true 정제 불가능 상태일 때 false
+        => targetMaterial != materialStat; //정제 가능 상태일 때 true 정제 불가능 상태일 때 false
 
     public void Refining(SmeltMaterial material)
     {
@@ -22,9 +22,9 @@ public class RefiningMachine : MonoBehaviour
             Debug.Log("This material is not compatible with this refinery machine");
             return;
         }
-            
+
         StartCoroutine(DelayCoroutine(refiningDuration, () => { //정제 가능 상태일 때 정제시간만든 딜레이
-            material.RefiningMaterail(targetMaterial + 1); //정제 시간이 다 지났을 때 정제한 재료의 상태를 기존 상태에서 다음 단계로 업데이트하는 코드
+            material.RefiningMaterail(targetMaterial); //정제 시간이 다 지났을 때 정제한 재료의 상태를 기존 상태에서 다음 단계로 업데이트하는 코드
             //아이템 반환하는 코드
             //스듀 씨앗생성기나 화로처럼 띄웠으면 좋겠음
         }));
