@@ -70,8 +70,8 @@ public class SkillInstance : EditorWindow
         skillName = EditorGUILayout.TextField("Skill name", skillName);
         isLocked = EditorGUILayout.Toggle("Skill Locked", isLocked);
         EditorGUILayout.EndToggleGroup();
-        string name = skillName.Replace(" ", "_");
-        string copyPath = filePath + $"/{name}.cs";
+        //string name = skillName.Replace(" ", "_");
+        string copyPath = filePath + $"/{skillName}.cs";
         if (GUILayout.Button("Create Skill Script") && skillName != null)
         {
             if (File.Exists(copyPath) == false)
