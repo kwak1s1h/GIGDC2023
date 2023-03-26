@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform _playerTrm;
+    public Transform PlayerTrm => _playerTrm;
+    //public Transform PlayerTrm {get => _playerTrm};
+
+    public static GameManager Instance;
+
+    [SerializeField] private Transform _mapTrm;
+
+    private void Awake()
     {
-        
+        _playerTrm = GameObject.Find("Player").transform;
+
+        if (Instance != null)
+        {
+            Debug.LogError("Multiple GameManager is running!");
+        }
+        Instance = this;
+
+        MapManager.Instance = new MapManager(_mapTrm);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
