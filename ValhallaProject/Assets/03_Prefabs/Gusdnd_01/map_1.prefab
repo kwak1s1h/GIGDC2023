@@ -147,6 +147,7 @@ MonoBehaviour:
   - {fileID: 3810775576158473975}
   - {fileID: 516419980725127983}
   - {fileID: 7089748489290579315}
+  percent: 30
 --- !u!1 &2327053809284714390
 GameObject:
   m_ObjectHideFlags: 0
