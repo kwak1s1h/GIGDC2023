@@ -6,13 +6,13 @@ public class RefiningMachine : MonoBehaviour
 {
     //해당 재료 정제기가 정제할 대상을 나타내는 변수
     //targetMaterial이 SmeltingStat.Melted인 도구는 SmeltMaterial의 currentStat이 SmeltingStat.Melted 재료만 정제할 수 있음
-    [SerializeField] SmeltingStat targetMaterial; 
+    [SerializeField] SmeltFlags targetMaterial; 
     [SerializeField] float refiningDuration = 3f; //재료 정제 시간
 
     /// <summary>
     /// 정제 대상이 정제 가능한 상태인지 확인하는 메소드
     /// </summary>
-    private bool CheckMaterial(SmeltingStat materialStat) 
+    private bool CheckMaterial(SmeltFlags materialStat) 
         => (targetMaterial == materialStat); //정제 가능 상태일 때 true 정제 불가능 상태일 때 false
 
     public void Refining(SmeltMaterial material)

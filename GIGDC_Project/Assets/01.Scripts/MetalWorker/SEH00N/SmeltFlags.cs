@@ -1,4 +1,4 @@
-public enum SmeltingStat
+public enum SmeltFlags
 {
     RawMaterial = 0,
     Melted = 1,

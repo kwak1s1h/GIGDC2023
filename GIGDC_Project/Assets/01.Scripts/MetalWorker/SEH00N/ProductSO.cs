@@ -11,5 +11,9 @@ public class ProductSO : ScriptableObject
     public Sprite ProductionSprite => productionSprite;
 
     [SerializeField] List<MaterialID> productionID;
-    public List<MaterialID> ProductionID => productionID;
+    public int ProductionID { get {
+        int value = 0;
+        productionID.ForEach(i => value = value * 1 + (int)i );
+        return value;
+    }}
 }
