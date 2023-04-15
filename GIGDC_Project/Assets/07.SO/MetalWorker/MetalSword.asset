@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c098ec548a72644b9c6670652fe2d6, type: 3}
   m_Name: MetalSword
   m_EditorClassIdentifier: 
-  productionName: MetalSwrod
+  productionName: MetalSword
   productionSprite: {fileID: 0}
-  productionID: 01000000
+  productionID: 0000000001000000
