@@ -6,7 +6,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
 {
     [field: SerializeField] public UnityEvent<Vector2> OnMovementKeyPress { get; set; }
 
-    [field: SerializeField]  public UnityEvent OnFireButtonPress { get; set; }
+    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
     [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
 
     private bool _fireButtonDown = false;
@@ -31,7 +31,8 @@ public class AgentInput : MonoBehaviour, IAgentInput
         if (Input.GetKeyDown(KeyCode.E))
         {
             OnNextWeaponPress?.Invoke(false);
-        }else if(Input.GetKeyDown(KeyCode.Q))
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             OnNextWeaponPress?.Invoke(true);
         }
@@ -47,9 +48,9 @@ public class AgentInput : MonoBehaviour, IAgentInput
 
     private void GetFireInput()
     {
-        if(Input.GetAxisRaw("Fire1") > 0)
+        if (Input.GetAxisRaw("Fire1") > 0)
         {
-            if(!_fireButtonDown)
+            if (!_fireButtonDown)
             {
                 _fireButtonDown = true;
                 OnFireButtonPress?.Invoke();
@@ -57,7 +58,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
         }
         else
         {
-            if(_fireButtonDown)
+            if (_fireButtonDown)
             {
                 _fireButtonDown = false;
                 OnFireButtonRelease?.Invoke();
