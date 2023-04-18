@@ -159,8 +159,8 @@ Camera:
   m_GameObject: {fileID: 450907814}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -349,6 +349,7 @@ MonoBehaviour:
   - {fileID: 4219068861556906482, guid: 01b840f57f2f1f64f880d29eb5d585e9, type: 3}
   - {fileID: 5836341580561358479, guid: 9baf3ceb48d359c44aecb3b4b0ee0bda, type: 3}
   mapListCnt: 3
+  _suffleAmount: 100
 --- !u!4 &1759979429
 Transform:
   m_ObjectHideFlags: 0

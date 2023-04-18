@@ -17,6 +17,17 @@ public class RandomMap : MonoBehaviour
         }
     }
 
+    [ContextMenu("GOGO")]
+    public void GOGO()
+    {
+        Init();
+
+        for (int i = 0; i < mapListCnt; i++)
+        {
+            MapInstantiate(i, new Vector2(20 * i, 0));
+        }
+    }
+
     public void MapInstantiate(int index, Vector2 ins_Pos){
         GameObject map_Inc = Instantiate(mapList[index]);
         map_Inc.transform.position = ins_Pos;
