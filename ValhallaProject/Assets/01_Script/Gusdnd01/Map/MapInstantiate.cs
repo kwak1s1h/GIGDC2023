@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomMap : MonoBehaviour
+public class MapInstantiate : MonoBehaviour
 {
-    [SerializeField] private GameObject[] mapList;
+    [SerializeField] private MapBase[] mapList;
     [SerializeField] private int mapListCnt = 3;
 
     [SerializeField] private int _suffleAmount = 100;
@@ -13,7 +13,7 @@ public class RandomMap : MonoBehaviour
         Init();
 
         for(int i = 0; i < mapListCnt;i++){
-            MapInstantiate(i, new Vector2(20 * i, 0));
+            MapInit(i, new Vector2(20 * i, 0));
         }
     }
 
@@ -24,16 +24,19 @@ public class RandomMap : MonoBehaviour
 
         for (int i = 0; i < mapListCnt; i++)
         {
-            MapInstantiate(i, new Vector2(20 * i, 0));
+            MapInit(i, new Vector2(20 * i, 0));
         }
     }
 
-    public void MapInstantiate(int index, Vector2 ins_Pos){
-        GameObject map_Inc = Instantiate(mapList[index]);
+    public void MapInit(int index, Vector2 ins_Pos){
+        GameObject map_Inc = Instantiate(mapList[index].gameObject);
+        MapBase mb = map_Inc.GetComponent<MapBase>();
+        mb.CurrentMapIndex = index;
+        GameManager.Instance.MapList.Add(mb);
         map_Inc.transform.position = ins_Pos;
     }
     private void Init(){
-        GameObject temp;
+        MapBase temp;
         int F_randNum = 0;
         int S_randNum = 0;
         for(int i = 0; i < _suffleAmount; i++){
