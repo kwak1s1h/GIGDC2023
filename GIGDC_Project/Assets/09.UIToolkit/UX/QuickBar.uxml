@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/09.UIToolkit/UX/QuickBar.uss?fileID=7433441132597879392&amp;guid=b2f28c9c9d326d540829b93f7989738c&amp;type=3#QuickBar" />
+    <ui:VisualElement name="QuickBar" class="quick-bar">
+        <ui:VisualElement name="QuickElement" class="quick-element select" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+        <ui:VisualElement name="QuickElement" class="quick-element" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -53,8 +53,6 @@ public class AgentMovement : MonoBehaviour
         _rigid.velocity = _movementDirection * _currentVelocity;
     }
 
-
-    //넉백구현할 때 사용할 거다.
     public void StopImmediatelly()
     {
         _currentVelocity = 0;

@@ -326,18 +326,24 @@ MonoBehaviour:
   <OnFireButtonPress>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  <OnFireButtonRelease>k__BackingField:
+  <OnInteractionKeyPress>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  OnReloadButtonPress:
+  <OnMouseWheelScroll>k__BackingField:
     m_PersistentCalls:
-      m_Calls: []
-  <OnDropButtonPress>k__BackingField:
-    m_PersistentCalls:
-      m_Calls: []
-  OnNextWeaponPress:
-    m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 625434747}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HotbarScroll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &625434744
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 625434746}
   - component: {fileID: 625434745}
+  - component: {fileID: 625434747}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -386,6 +393,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625434747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625434744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3a8e65004466b43926d94951ceeb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1782384122
 GameObject:
   m_ObjectHideFlags: 0

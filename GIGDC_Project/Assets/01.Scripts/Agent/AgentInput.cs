@@ -5,43 +5,31 @@ using UnityEngine.Events;
 public class AgentInput : MonoBehaviour, IAgentInput
 {
     [field: SerializeField] public UnityEvent<Vector2> OnMovementKeyPress { get; set; }
-
-    [field: SerializeField]  public UnityEvent OnFireButtonPress { get; set; }
-    [field: SerializeField] public UnityEvent OnFireButtonRelease { get; set; }
-
-    private bool _fireButtonDown = false;
-
-    public UnityEvent OnReloadButtonPress;
-
-    [field: SerializeField] public UnityEvent OnDropButtonPress { get; set; }
-
-    public UnityEvent<bool> OnNextWeaponPress;
+    [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
+    [field: SerializeField] public UnityEvent OnInteractionKeyPress { get; set; }
+    [field: SerializeField] public UnityEvent<int> OnMouseWheelScroll { get; set; }
 
     private void Update()
     {
         GetMovementInput();
         GetFireInput();
-
-        GetDropInput();
-        GetChangeInput();
+        GetInteractionInput();
+        GetMouseWheelInput();
     }
 
-    private void GetChangeInput()
+    private void GetMouseWheelInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if(Input.mouseScrollDelta.y != 0)
         {
-            OnNextWeaponPress?.Invoke(false);
-        }else if(Input.GetKeyDown(KeyCode.Q))
-        {
-            OnNextWeaponPress?.Invoke(true);
+            OnMouseWheelScroll?.Invoke(UIManager.Instance.HotbarIdx + (Input.mouseScrollDelta.y > 0 ? -1 : 1));
         }
     }
 
-    private void GetDropInput()
+    private void GetInteractionInput()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            OnDropButtonPress?.Invoke();
+            OnInteractionKeyPress?.Invoke();
         }
     }
 
@@ -49,19 +37,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
     {
         if(Input.GetAxisRaw("Fire1") > 0)
         {
-            if(!_fireButtonDown)
-            {
-                _fireButtonDown = true;
-                OnFireButtonPress?.Invoke();
-            }
-        }
-        else
-        {
-            if(_fireButtonDown)
-            {
-                _fireButtonDown = false;
-                OnFireButtonRelease?.Invoke();
-            }
+            OnFireButtonPress?.Invoke();
         }
     }
 
