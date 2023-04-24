@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     private int _columns;
     private VisualElement _invenPopup;
     private VisualElement[] _invenElements;
+    private VisualElement _closeBtn;
 
     private void Awake()
     {
@@ -41,7 +42,11 @@ public class UIManager : MonoBehaviour
         _hotbarLength = _hotbarElements.Length;
         
         // Inventory Popup
-        
+        _invenPopup = _root.Q<VisualElement>("invenPopup");
+        _closeBtn = _invenPopup.Q<VisualElement>("closeBtn");
+        _closeBtn.RegisterCallback<ClickEvent>((e) => {
+            _invenPopup.AddToClassList("close");
+        });
     }
 
     public void HotbarScroll(int idx)
@@ -49,5 +54,17 @@ public class UIManager : MonoBehaviour
         _hotbarElements[_hotbarIdx].RemoveFromClassList("select");
         _hotbarIdx = Mathf.Clamp(idx, 0, _hotbarLength - 1);
         _hotbarElements[_hotbarIdx].AddToClassList("select");
+    }
+
+    public void SwichInven()
+    {
+        if(_invenPopup.ClassListContains("close"))
+        {
+            _invenPopup.RemoveFromClassList("close");
+        }
+        else
+        {
+            _invenPopup.AddToClassList("close");
+        }
     }
 }

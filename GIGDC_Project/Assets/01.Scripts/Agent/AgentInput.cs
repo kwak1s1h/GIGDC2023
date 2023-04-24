@@ -8,6 +8,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
     [field: SerializeField] public UnityEvent OnFireButtonPress { get; set; }
     [field: SerializeField] public UnityEvent OnInteractionKeyPress { get; set; }
     [field: SerializeField] public UnityEvent<int> OnMouseWheelScroll { get; set; }
+    [field: SerializeField] public UnityEvent OnInvenOpenKeyPress { get; set; }
 
     private void Update()
     {
@@ -15,6 +16,15 @@ public class AgentInput : MonoBehaviour, IAgentInput
         GetFireInput();
         GetInteractionInput();
         GetMouseWheelInput();
+        GetOpenInvenInput();
+    }
+
+    private void GetOpenInvenInput()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            OnInvenOpenKeyPress?.Invoke();
+        }
     }
 
     private void GetMouseWheelInput()
