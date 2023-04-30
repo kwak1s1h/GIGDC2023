@@ -10,6 +10,7 @@ public class MapManager
     private Tilemap _collisionMap;
 
     public static MapManager Instance;
+
     private void Awake()
     {
         if(Instance == null)
