@@ -13,7 +13,7 @@ public class MapInstantiate : MonoBehaviour
         Init();
 
         for(int i = 0; i < mapListCnt;i++){
-            MapInit(i, new Vector2(20 * i, 0));
+            MapInit(i, new Vector2(200 * i, 0));
         }
     }
 
@@ -24,7 +24,7 @@ public class MapInstantiate : MonoBehaviour
 
         for (int i = 0; i < mapListCnt; i++)
         {
-            MapInit(i, new Vector2(20 * i, 0));
+            MapInit(i, new Vector2(100 * i, 0));
         }
     }
 
@@ -40,8 +40,8 @@ public class MapInstantiate : MonoBehaviour
         int F_randNum = 0;
         int S_randNum = 0;
         for(int i = 0; i < _suffleAmount; i++){
-            F_randNum = Random.Range(0,6);
-            S_randNum = Random.Range(0,6);
+            F_randNum = Random.Range(0, mapList.Length);
+            S_randNum = Random.Range(0, mapList.Length);
             temp = mapList[F_randNum];
             mapList[F_randNum] = mapList[S_randNum];
             mapList[S_randNum] = temp;
